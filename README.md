@@ -1,2 +1,2 @@
 # covid-data
-Utilizing Microsoft SQL Server, this project analyzes COVID-19 infection cases and rates in various countries, offering a concise and efficient platform for insightful data exploration and trend identification.
+This project, developed using Microsoft SQL Server Management Studio, is dedicated to the analysis of COVID-19 infection cases and rates across various countries. It provides a comprehensive platform for studying and visualizing the dynamic trends, patterns, and statistics related to the global pandemic, leveraging the powerful capabilities of SQL Server for robust data management and analysis
