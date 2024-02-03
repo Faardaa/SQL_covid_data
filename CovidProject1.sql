@@ -48,7 +48,7 @@ ORDER BY 1,2
 
 WITH PopVsVac(Continent, Location, Date, Population, New_Vaccinations, RollingPeopleVaccinatinons) as 
 (SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, 
-SUM(CONVERT(int, vac.new_vaccinations)) OVER (PARTITION BY dea.location ORDER BY vac.date)
+SUM(CONVERT(bigint, vac.new_vaccinations)) OVER (PARTITION BY dea.location ORDER BY vac.date)
 as RollingPeopleVaccination
 FROM PortfolioProject..CovidVaccinations vac
 JOIN PortfolioProject..CovidDeaths dea
@@ -72,8 +72,8 @@ New_Vaccinations int,
 RollingPeopleVaccinatinons int)
 
 INSERT INTO #PercentPopulationVaccined
-SELECT dea.continent, dea.location, dea.date, CONVERT(int, dea.population), vac.new_vaccinations, 
-SUM(CONVERT(int, vac.new_vaccinations)) OVER (PARTITION BY dea.location ORDER BY vac.date)
+SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, 
+SUM(CONVERT(bigint, vac.new_vaccinations)) OVER (PARTITION BY dea.location ORDER BY vac.date)
 as RollingPeopleVaccination
 FROM PortfolioProject..CovidVaccinations vac
 JOIN PortfolioProject..CovidDeaths dea
